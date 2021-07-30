@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <input type="number" name="" id="width" style="z-index: 100;" step="10">
     <div class="logo" id="logo">
         <div class="outer-circle"></div>
         <div class="middle-circle"></div>
@@ -21,12 +22,22 @@
         let d = document.getElementById("d")
         let k = document.getElementById("k")
         let logo = document.getElementById("logo")
+        let width_size = document.getElementById("width")
 
-        logo.style.height = logo.clientWidth;
-        d.style.fontSize = (logo.clientWidth / 2.2) + "px";
-        d.style.textShadow = (logo.clientWidth / 10) + " " + (logo.clientWidth / 10) + " " + (logo.clientWidth / 12) + "#9191916b";
-        k.style.fontSize = (logo.clientWidth / 2.2) + "px";
-        k.style.textShadow = (logo.clientWidth / 10) + " " + (logo.clientWidth / 10) + " " + (logo.clientWidth / 12) + "#9191916b";
+        width_size.oninput = function() {
+            logo.style.width = width_size.value + "px";
+            update_sizes();
+        }
+
+        function update_sizes() {
+
+
+            logo.style.height = width_size.value + "px";
+            d.style.fontSize = (logo.clientWidth / 2.2) + "px";
+            d.style.textShadow = (logo.clientWidth / 10) + " " + (logo.clientWidth / 10) + " " + (logo.clientWidth / 12) + "#9191916b";
+            k.style.fontSize = (logo.clientWidth / 2.2) + "px";
+            k.style.textShadow = (logo.clientWidth / 10) + " " + (logo.clientWidth / 10) + " " + (logo.clientWidth / 12) + "#9191916b";
+        }
     </script>
 </body>
 
